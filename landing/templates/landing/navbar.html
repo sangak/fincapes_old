@@ -1,0 +1,86 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg nav-sticky navbar-custom" id="navbar">
+    <div class="container-fluid ps-0 pe-0">
+        <a class="navbar-brand text-uppercase" href="{% url 'frontpage:index' %}">
+            <img class="logo-light" src="{% static 'img/logo-dark.png' %}" alt="" height="45">
+            <img class="logo-dark" src="{% static 'img/logo-light.png' %}" alt="" height="32">
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="mdi mdi-menu"></span>
+        </button>
+        <div class="collapse navbar-collapse flex-column align-items-end" id="navbarCollapse">
+            <div class="contact-number">
+                <div class="row">
+                    <div class="col">
+                        <ul class="list-unstyled mail-contact">
+                            <li class="list-inline-item">
+                                <a href="#">
+                                    <i class="mdi mdi-whatsapp" title="Whatsapp"></i>
+                                    +62 813 6161 5604
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="mailto:info@fincapes.com">
+                                    <i class="mdi mdi-email"></i>
+                                    info@fincapes.com
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <ul class="list-unstyled social-icon text-end">
+                            <li class="list-inline-item"><a href="javascript:void(0)"><i data-feather="facebook" stroke-width="1" width="20"></i></a></li>
+                            <li class="list-inline-item"><a href="javascript:void(0)"><i data-feather="twitter" stroke-width="1" width="20"></i></a></li>
+                            <li class="list-inline-item"><a href="javascript:void(0)"><i data-feather="instagram" stroke-width="1" width="20"></i></a></li>
+                            <li class="list-inline-item"><a href="javascript:void(0)"><i data-feather="linkedin" stroke-width="1" width="20"></i></a></li>
+                            <li class="list-inline-item"><a href="javascript:void(0)"><i data-feather="youtube" stroke-width="1" width="20"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <ul class="navbar-nav mx-auto my-auto" id="navbar-navlist">
+                <li class="nav-item">
+                    <a class="nav-link{% if uri == 'homepage' %} active{% endif %}" href="{% url 'frontpage:index' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link{% if uri == 'about-us' %} active{% endif %}" href="#">About Us</a>
+                </li>
+                <li class="nav-item dropdown dropdown-hover">
+                    <a class="nav-link dropdown-toggle" href="#" id="homedrop" role="button"
+                        data-bs-toggle="dropdown">
+                        Program
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-center" aria-labelledby="homedrop">
+                        <li>
+                            <a class="dropdown-item" href="index.html">
+                                <i class="mdi mdi-home-outline f-20 ms-2 me-2 align-middle"></i>
+                                Home Page 1
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="index-3.html">
+                                <i class="mdi mdi-home-modern f-20 ms-2 me-2 align-middle"></i>
+                                Home Page 2
+                            </a>
+                        </li>
+                        <li class="dropdown-divider"></li>
+                        <li>
+                            <a class="dropdown-item" href="index-4.html">
+                                <i class="mdi mdi-home-variant f-20 ms-2 me-2 align-middle"></i>
+                                Home Page 3
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#publication">Publication</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Inside Story</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
