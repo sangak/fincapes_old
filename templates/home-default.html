@@ -1,4 +1,5 @@
 {% load static %}{% load i18n %}{% load l10n %}
+{% load user_agents %}
 {% get_current_language as bahasa %}
 <!DOCTYPE html>
 <html lang="{{ bahasa }}">
@@ -10,163 +11,156 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-  <header id="header" class="navbar navbar-expand-lg navbar-end navbar-light navbar-absolute-top navbar-show-hide"
+    <header id="header" class="navbar navbar-expand-lg navbar-end navbar-light navbar-absolute-top navbar-show-hide"
           data-hs-header-options='{
             "fixMoment": 0,
             "fixEffect": "slide"
           }'>
-    <div class="container">
-      <nav class="js-mega-menu navbar-nav-wrap">
-        <a class="navbar-brand" href="{% url 'frontpage:index' %}" aria-label="IdeAjar">
-          <img class="navbar-brand-logo" src="{% static 'img/logo-dark.png' %}" alt="Image Description">
-        </a>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-default">
-            <i class="bi-list"></i>
-          </span>
-          <span class="navbar-toggler-toggled">
-            <i class="bi-x"></i>
-          </span>
-        </button>
-      
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <div class="navbar-absolute-top-scroller">
-            <ul class="navbar-nav nav-pills">
-                <li class="nav-item">
-                    <a id="about-us" class="nav-link" href="#" role="button">About Us</a>
+        <section id="navbar-contact">
+            <div class="container">
+                <ul>
+                    <li>
+                        <a class="link link-light" href="#">
+                            <i class="bi bi-whatsapp"></i> +62 813 6161 5604
+                        </a>
+                    </li>
+                </ul>
+                <ul>
+                <li>
+                    <a class="link link-light" href="#">
+                        <i class="bi bi-facebook lh-1"></i>
+                    </a>
                 </li>
-              <li class="hs-has-mega-menu nav-item">
-                <a id="pagesMegaMenu" class="hs-mega-menu-invoker nav-link dropdown-toggle " href="#" role="button" aria-expanded="false">Bahan Ajar</a>
-                <div class="hs-mega-menu hs-position-right dropdown-menu w-100" aria-labelledby="pagesMegaMenu" style="min-width: 42rem;">
-                  <div class="navbar-dropdown-menu-inner">
-                    <div class="row">
-                      <div class="col-sm-6 col-lg-3">
-                        <span class="dropdown-header">Company</span>
-                        <a class="dropdown-item " href="./page-about.html">About</a>
-                        <a class="dropdown-item " href="./page-customer-stories.html">Customer Stories</a>
-                        <a class="dropdown-item " href="./page-customer-story.html">Customer Story</a>
-                        <a class="dropdown-item " href="./page-help-center.html">Help Center</a>
-                        <a class="dropdown-item " href="./page-help-center-categories.html">Help Center: Categories</a>
-                        <a class="dropdown-item " href="./page-help-center-article.html">Help Center: Article</a>
-                      </div>
-
-                      <div class="col-sm-6 col-lg-3 mt-n5 mt-sm-0 mb-3 mb-lg-0">
-                        <span class="dropdown-header invisible">Company</span>
-                        <a class="dropdown-item " href="./page-careers.html">Careers</a>
-                        <a class="dropdown-item " href="./page-careers-role-overview.html">Careers: Role Overview</a>
-                        <a class="dropdown-item " href="./page-careers-apply.html">Careers: Apply</a>
-                        <a class="dropdown-item " href="./page-hire-us.html">Hire Us</a>
-                        <a class="dropdown-item " href="./page-login.html">Log In</a>
-                        <a class="dropdown-item " href="./page-signup.html">Sign Up</a>
-                        <a class="dropdown-item " href="./page-reset-password.html">Forgot Password</a>
-                      </div>
-
-                      <div class="col-sm-6 col-lg-3 mb-3 mb-lg-0">
-                        <span class="dropdown-header">Portfolio</span>
-                        <a class="dropdown-item " href="./portfolio-modern.html">Modern</a>
-                        <a class="dropdown-item " href="./portfolio-case-study.html">Case Study</a>
-                      </div>
-
-                      <div class="col-sm-6 col-lg-3">
-                        <span class="dropdown-header">Specialty pages</span>
-                        <a class="dropdown-item " href="./page-pricing.html">Pricing</a>
-                        <a class="dropdown-item " href="./page-contacts.html">Contacts</a>
-                        <a class="dropdown-item " href="./page-coming-soon.html">Coming Soon</a>
-                        <a class="dropdown-item " href="./page-coming-soon-simple.html">Coming Soon: Simple</a>
-                        <a class="dropdown-item " href="./page-error-404.html">Error 404</a>
-                        <a class="dropdown-item " href="./page-terms.html">Terms &amp; Conditions</a>
-                        <a class="dropdown-item " href="./page-privacy.html">Privacy &amp; Policy</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li class="hs-has-mega-menu nav-item"
-                  data-hs-mega-menu-item-options='{
-                    "desktop": {
-                      "maxWidth": "50rem"
-                    }
-                  }'>
-                <a id="blogMegaMenu" class="hs-mega-menu-invoker nav-link dropdown-toggle " href="#" role="button" aria-expanded="false">Blog</a>
-
-                <div class="hs-mega-menu dropdown-menu" aria-labelledby="blogMegaMenu" style="min-width: 12rem;">
-                  <!-- Main Content -->
-                  <div class="row">
-                    <div class="col-lg d-none d-lg-block">
-                      <div class="bg-light rounded-3 h-100 p-4">
-                        <span class="d-block fs-4 fw-bold text-dark mb-3">Latest from the Blog</span>
-
-                        <div class="row">
-                          <div class="col-md-6 mb-3 mb-md-0">
-                            <!-- Card -->
-                            <a class="d-block" href="./documentation/index.html">
-                              <img class="img-fluid rounded-2 mb-2" src="./assets/svg/components/card-1.svg" alt="Image Description">
-
-                              <span class="fs-4 fw-medium text-dark text-inherit">Documentation</span>
-                              <p class="fs-6 text-body">Development guides for building projects with Unify</p>
-                              <span class="link link-pointer">Learn more</span>
-                            </a>
-                            <!-- End Card -->
-                          </div>
-                          <!-- End Col -->
-
-                          <div class="col-md-6">
-                            <!-- Card -->
-                            <a class="d-block" href="./snippets/index.html">
-                              <img class="img-fluid rounded-2 mb-2" src="./assets/svg/components/card-2.svg" alt="Image Description">
-
-                              <span class="fs-4 fw-medium text-dark text-inherit">Snippets</span>
-                              <p class="fs-6 text-body">Move quickly with copy-to-clipboard feature</p>
-                              <span class="link link-pointer">Learn more</span>
-                            </a>
-                            <!-- End Card -->
-                          </div>
-                          <!-- End Col -->
-                        </div>
-                        <!-- End Row -->
-                      </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                      <div class="navbar-dropdown-menu-inner">
-                        <span class="dropdown-header">Classic</span>
-                        <a class="dropdown-item " href="./blog-modern.html">Modern <span class="badge text-primary">New</span></a>
-                        <a class="dropdown-item " href="./blog-grid.html">Grid</a>
-                        <a class="dropdown-item " href="./blog-list.html">List</a>
-                        <a class="dropdown-item " href="./blog-article.html">Article <span class="badge text-primary">New</span></a>
-                        <a class="dropdown-item " href="./blog-author-profile.html">Author Profile</a>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- End Main Content -->
-                </div>
-                <!-- End Mega Menu -->
-              </li>
-              <li class="nav-item">
-              </li>
-              <li class="nav-item ms-lg-auto">
-                <a class="btn btn-ghost-dark me-2 me-lg-0" href="./page-login.html">Log in</a>
-                <a class="btn btn-dark d-lg-none" href="./page-signup.html">Sign up</a>
-              </li>
-              <!-- End Log in -->
-
-              <!-- Sign up -->
-              <li class="nav-item">
-                <a class="btn btn-dark d-none d-lg-inline-block" href="./page-signup.html">Sign up</a>
-              </li>
-              <!-- End Sign up -->
+                <li>
+                    <a class="link link-light" href="#">
+                        <i class="bi bi-twitter"></i>
+                    </a>
+                </li>
             </ul>
-          </div>
         </div>
-        <!-- End Collapse -->
-      </nav>
-    </div>
-  </header>
 
-  <!-- ========== END HEADER ========== -->
+        </section>
+        <div class="container">
+            <nav class="js-mega-menu navbar-nav-wrap">
+                <a class="navbar-brand" href="{% url 'frontpage:index' %}" aria-label="IdeAjar">
+                    <img class="navbar-brand-logo" src="{% static 'img/logo-dark.png' %}" alt="Image Description">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-default">
+                        <i class="bi-list"></i>
+                    </span>
+                    <span class="navbar-toggler-toggled">
+                        <i class="bi-x"></i>
+                    </span>
+                </button>
+      
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <div class="navbar-absolute-top-scroller">
+                        <ul class="navbar-nav nav-pills">
+                            <li class="nav-item">
+                                <a id="about-us" class="nav-link" href="#" role="button">About Us</a>
+                            </li>
+                            <li class="hs-has-mega-menu nav-item">
+                                <a id="pagesMegaMenu" class="hs-mega-menu-invoker nav-link dropdown-toggle " href="#" role="button" aria-expanded="false">Bahan Ajar</a>
+                                <div class="hs-mega-menu hs-position-right dropdown-menu w-100" aria-labelledby="pagesMegaMenu" style="min-width: 42rem;">
+                                    <div class="navbar-dropdown-menu-inner">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-lg-3">
+                                                <span class="dropdown-header">Company</span>
+                                                <a class="dropdown-item " href="./page-about.html">About</a>
+                                                <a class="dropdown-item " href="./page-customer-stories.html">Customer Stories</a>
+                                                <a class="dropdown-item " href="./page-customer-story.html">Customer Story</a>
+                                                <a class="dropdown-item " href="./page-help-center.html">Help Center</a>
+                                                <a class="dropdown-item " href="./page-help-center-categories.html">Help Center: Categories</a>
+                                                <a class="dropdown-item " href="./page-help-center-article.html">Help Center: Article</a>
+                                            </div>
 
-  <!-- ========== MAIN CONTENT ========== -->
+                                            <div class="col-sm-6 col-lg-3 mt-n5 mt-sm-0 mb-3 mb-lg-0">
+                                                <span class="dropdown-header invisible">Company</span>
+                                                <a class="dropdown-item " href="./page-careers.html">Careers</a>
+                                                <a class="dropdown-item " href="./page-careers-role-overview.html">Careers: Role Overview</a>
+                                                <a class="dropdown-item " href="./page-careers-apply.html">Careers: Apply</a>
+                                                <a class="dropdown-item " href="./page-hire-us.html">Hire Us</a>
+                                                <a class="dropdown-item " href="./page-login.html">Log In</a>
+                                                <a class="dropdown-item " href="./page-signup.html">Sign Up</a>
+                                                <a class="dropdown-item " href="./page-reset-password.html">Forgot Password</a>
+                                            </div>
+
+                                            <div class="col-sm-6 col-lg-3 mb-3 mb-lg-0">
+                                                <span class="dropdown-header">Portfolio</span>
+                                                <a class="dropdown-item " href="./portfolio-modern.html">Modern</a>
+                                                <a class="dropdown-item " href="./portfolio-case-study.html">Case Study</a>
+                                            </div>
+
+                                            <div class="col-sm-6 col-lg-3">
+                                                <span class="dropdown-header">Specialty pages</span>
+                                                <a class="dropdown-item " href="./page-pricing.html">Pricing</a>
+                                                <a class="dropdown-item " href="./page-contacts.html">Contacts</a>
+                                                <a class="dropdown-item " href="./page-coming-soon.html">Coming Soon</a>
+                                                <a class="dropdown-item " href="./page-coming-soon-simple.html">Coming Soon: Simple</a>
+                                                <a class="dropdown-item " href="./page-error-404.html">Error 404</a>
+                                                <a class="dropdown-item " href="./page-terms.html">Terms &amp; Conditions</a>
+                                                <a class="dropdown-item " href="./page-privacy.html">Privacy &amp; Policy</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="hs-has-mega-menu nav-item"
+                                data-hs-mega-menu-item-options='{
+                                    "desktop": {
+                                    "maxWidth": "50rem"
+                                }
+                            }'>
+                                <a id="blogMegaMenu" class="hs-mega-menu-invoker nav-link dropdown-toggle " href="#" role="button" aria-expanded="false">Blog</a>
+                                <div class="hs-mega-menu dropdown-menu" aria-labelledby="blogMegaMenu" style="min-width: 12rem;">
+                                    <div class="row">
+                                        <div class="col-lg d-none d-lg-block">
+                                            <div class="bg-light rounded-3 h-100 p-4">
+                                                <span class="d-block fs-4 fw-bold text-dark mb-3">Latest from the Blog</span>
+                                                <div class="row">
+                                                    <div class="col-md-6 mb-3 mb-md-0">
+                                                        <a class="d-block" href="./documentation/index.html">
+                                                            <img class="img-fluid rounded-2 mb-2" src="./assets/svg/components/card-1.svg" alt="Image Description">
+                                                            <span class="fs-4 fw-medium text-dark text-inherit">Documentation</span>
+                                                            <p class="fs-6 text-body">Development guides for building projects with Unify</p>
+                                                            <span class="link link-pointer">Learn more</span>
+                                                        </a>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <a class="d-block" href="./snippets/index.html">
+                                                            <img class="img-fluid rounded-2 mb-2" src="./assets/svg/components/card-2.svg" alt="Image Description">
+                                                            <span class="fs-4 fw-medium text-dark text-inherit">Snippets</span>
+                                                            <p class="fs-6 text-body">Move quickly with copy-to-clipboard feature</p>
+                                                            <span class="link link-pointer">Learn more</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4">
+                                            <div class="navbar-dropdown-menu-inner">
+                                                <span class="dropdown-header">Classic</span>
+                                                <a class="dropdown-item " href="./blog-modern.html">Modern <span class="badge text-primary">New</span></a>
+                                                <a class="dropdown-item " href="./blog-grid.html">Grid</a>
+                                                <a class="dropdown-item " href="./blog-list.html">List</a>
+                                                <a class="dropdown-item " href="./blog-article.html">Article <span class="badge text-primary">New</span></a>
+                                                <a class="dropdown-item " href="./blog-author-profile.html">Author Profile</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
   <main id="content" role="main">
     <!-- Hero -->
     <div class="container content-space-t-3">

@@ -61,10 +61,12 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'fincapes.middleware.DefaultLanguageMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_user_agents.middleware.UserAgentMiddleware',
     'django_htmx.middleware.HtmxMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
+    # 'django.middleware.locale.LocaleMiddleware',
 ]
 
 AUTH_USER_MODEL = 'accounts.User'
@@ -170,6 +172,8 @@ PROTECTED_ROOT = BASE_DIR / 'cdn/protected'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+USE_THOUSAND_SEPARATOR = True
+
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
@@ -212,3 +216,5 @@ THUMBNAILS = {
         }
     }
 }
+
+THUMB_SIZE = (100, 100)
